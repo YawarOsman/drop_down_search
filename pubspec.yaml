@@ -1,0 +1,21 @@
+name: drop_down_search
+description: Full customized dropdown.
+version: 1.0.0
+homepage: https://github.com/YawarOsman
+git: https://github.com/YawarOsman/drop_down_search.git
+repository: https://github.com/YawarOsman/drop_down_search
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
