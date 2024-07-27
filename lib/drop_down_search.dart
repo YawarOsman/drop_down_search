@@ -6,6 +6,7 @@ import 'package:drop_down_search/src/properties/clear_button_props.dart';
 import 'package:drop_down_search/src/properties/dropdown_button_props.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'src/properties/dropdown_decorator_props.dart';
 import 'src/properties/popup_props.dart';
@@ -356,10 +357,91 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
               .toList(),
         );
       }
-      return Text(
-        _selectedItemAsString(getSelectedItem),
-        style: widget.dropdownDecoratorProps.baseStyle,
-        textAlign: widget.dropdownDecoratorProps.textAlign,
+      // return Text(
+      //   _selectedItemAsString(getSelectedItem),
+      //   style: widget.dropdownDecoratorProps.baseStyle,
+      //   textAlign: widget.dropdownDecoratorProps.textAlign,
+      // );
+      return Padding(
+        padding: widget.popupProps.searchFieldProps.padding,
+        child: DefaultTextEditingShortcuts(
+          child: Shortcuts(
+            shortcuts: const <ShortcutActivator, Intent>{
+              SingleActivator(LogicalKeyboardKey.space):
+                  DoNothingAndStopPropagationTextIntent(),
+            },
+            child: TextField(
+              controller: widget.popupProps.searchFieldProps.controller,
+              enableIMEPersonalizedLearning: widget
+                  .popupProps.searchFieldProps.enableIMEPersonalizedLearning,
+              clipBehavior: widget.popupProps.searchFieldProps.clipBehavior,
+              style: widget.popupProps.searchFieldProps.style,
+              focusNode: widget.popupProps.searchFieldProps.focusNode,
+              autofocus: widget.popupProps.searchFieldProps.autofocus,
+              decoration: widget.popupProps.searchFieldProps.decoration,
+              keyboardType: widget.popupProps.searchFieldProps.keyboardType,
+              textInputAction:
+                  widget.popupProps.searchFieldProps.textInputAction,
+              textCapitalization:
+                  widget.popupProps.searchFieldProps.textCapitalization,
+              strutStyle: widget.popupProps.searchFieldProps.strutStyle,
+              textAlign: widget.popupProps.searchFieldProps.textAlign,
+              textAlignVertical:
+                  widget.popupProps.searchFieldProps.textAlignVertical,
+              textDirection: widget.popupProps.searchFieldProps.textDirection,
+              readOnly: widget.popupProps.searchFieldProps.readOnly,
+              contextMenuBuilder:
+                  widget.popupProps.searchFieldProps.contextMenuBuilder,
+              showCursor: widget.popupProps.searchFieldProps.showCursor,
+              obscuringCharacter:
+                  widget.popupProps.searchFieldProps.obscuringCharacter,
+              obscureText: widget.popupProps.searchFieldProps.obscureText,
+              autocorrect: widget.popupProps.searchFieldProps.autocorrect,
+              smartDashesType:
+                  widget.popupProps.searchFieldProps.smartDashesType,
+              smartQuotesType:
+                  widget.popupProps.searchFieldProps.smartQuotesType,
+              enableSuggestions:
+                  widget.popupProps.searchFieldProps.enableSuggestions,
+              maxLines: widget.popupProps.searchFieldProps.maxLines,
+              minLines: widget.popupProps.searchFieldProps.minLines,
+              expands: widget.popupProps.searchFieldProps.expands,
+              maxLengthEnforcement:
+                  widget.popupProps.searchFieldProps.maxLengthEnforcement,
+              maxLength: widget.popupProps.searchFieldProps.maxLength,
+              onAppPrivateCommand:
+                  widget.popupProps.searchFieldProps.onAppPrivateCommand,
+              inputFormatters:
+                  widget.popupProps.searchFieldProps.inputFormatters,
+              enabled: widget.popupProps.searchFieldProps.enabled,
+              cursorWidth: widget.popupProps.searchFieldProps.cursorWidth,
+              cursorHeight: widget.popupProps.searchFieldProps.cursorHeight,
+              cursorRadius: widget.popupProps.searchFieldProps.cursorRadius,
+              cursorColor: widget.popupProps.searchFieldProps.cursorColor,
+              selectionHeightStyle:
+                  widget.popupProps.searchFieldProps.selectionHeightStyle,
+              selectionWidthStyle:
+                  widget.popupProps.searchFieldProps.selectionWidthStyle,
+              keyboardAppearance:
+                  widget.popupProps.searchFieldProps.keyboardAppearance,
+              scrollPadding: widget.popupProps.searchFieldProps.scrollPadding,
+              dragStartBehavior:
+                  widget.popupProps.searchFieldProps.dragStartBehavior,
+              enableInteractiveSelection:
+                  widget.popupProps.searchFieldProps.enableInteractiveSelection,
+              selectionControls:
+                  widget.popupProps.searchFieldProps.selectionControls,
+              onTap: widget.popupProps.searchFieldProps.onTap,
+              mouseCursor: widget.popupProps.searchFieldProps.mouseCursor,
+              buildCounter: widget.popupProps.searchFieldProps.buildCounter,
+              scrollController:
+                  widget.popupProps.searchFieldProps.scrollController,
+              scrollPhysics: widget.popupProps.searchFieldProps.scrollPhysics,
+              autofillHints: widget.popupProps.searchFieldProps.autofillHints,
+              restorationId: widget.popupProps.searchFieldProps.restorationId,
+            ),
+          ),
+        ),
       );
     }
 

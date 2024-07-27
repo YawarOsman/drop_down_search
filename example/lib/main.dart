@@ -178,7 +178,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       popupProps: PopupPropsMultiSelection.modalBottomSheet(
                         isFilterOnline: true,
                         showSelectedItems: true,
-                        showSearchBox: true,
                         itemBuilder: _customPopupItemBuilderExample2,
                         favoriteItemProps: FavoriteItemProps(
                           showFavoriteItems: true,
@@ -197,7 +196,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       asyncItems: (filter) => getData(filter),
                       compareFn: (i, s) => i.isEqual(s),
                       popupProps: PopupPropsMultiSelection.modalBottomSheet(
-                        showSearchBox: true,
                         itemBuilder: _customPopupItemBuilderExample2,
                         favoriteItemProps: FavoriteItemProps(
                           showFavoriteItems: true,
@@ -317,7 +315,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       popupProps: PopupPropsMultiSelection.dialog(
                         onItemAdded: (l, s) => _handleCheckBoxState(),
                         onItemRemoved: (l, s) => _handleCheckBoxState(),
-                        showSearchBox: true,
                         containerBuilder: (ctx, popupWidget) {
                           return _CheckBoxWidget(
                             child: popupWidget,
@@ -344,7 +341,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       popupProps: PopupPropsMultiSelection.dialog(
                         onItemAdded: (l, s) => _handleCheckBoxState(),
                         onItemRemoved: (l, s) => _handleCheckBoxState(),
-                        showSearchBox: true,
                         containerBuilder: (ctx, popupWidget) {
                           return Column(
                             children: [
@@ -411,7 +407,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         showSelectedItems: true,
                         isFilterOnline: true,
                         itemBuilder: _customPopupItemBuilderExample2,
-                        showSearchBox: true,
                         searchFieldProps: TextFieldProps(
                           controller: _userEditTextController,
                           decoration: InputDecoration(
@@ -444,7 +439,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       popupProps: PopupPropsMultiSelection.modalBottomSheet(
                         showSelectedItems: true,
                         itemBuilder: _customPopupItemBuilderExample2,
-                        showSearchBox: true,
                       ),
                       compareFn: (item, sItem) => item.id == sItem.id,
                       dropdownDecoratorProps: DropDownDecoratorProps(
@@ -470,7 +464,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: DropdownSearch<int>(
                       items: List.generate(50, (i) => i),
                       popupProps: PopupProps.menu(
-                        showSearchBox: true,
                         title: Text('default fit'),
                       ),
                     ),
@@ -481,7 +474,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       items: List.generate(50, (i) => i),
                       popupProps: PopupProps.menu(
                         title: Text('With fit to loose and no constraints'),
-                        showSearchBox: true,
+
                         fit: FlexFit.loose,
                         //comment this if you want that the items do not takes all available height
                         constraints: BoxConstraints.tightFor(),
@@ -497,7 +490,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: DropdownSearch<int>(
                       items: List.generate(50, (i) => i),
                       popupProps: PopupProps.menu(
-                        showSearchBox: true,
                         fit: FlexFit.loose,
                         title: Text('fit to a specific max height'),
                         constraints: BoxConstraints(maxHeight: 300),
@@ -510,7 +502,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       items: List.generate(50, (i) => i),
                       popupProps: PopupProps.menu(
                         title: Text('fit to a specific width and height'),
-                        showSearchBox: true,
                         fit: FlexFit.loose,
                         constraints: BoxConstraints.tightFor(
                           width: 300,
